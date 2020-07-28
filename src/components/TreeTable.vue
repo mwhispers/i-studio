@@ -1,10 +1,15 @@
 <template>
   <div class="tree-table-component">
-    <Table :columns="columns" :data="data" :loading="loading" border row-key="id"></Table>
+    <Table :columns="columns" :data="data" :loading="loading" border row-key="id" v-if="false"></Table>
+    <Tree :data="data" style="width: 100%"></Tree>
   </div>
 </template>
 <script>
+import TreeRow from './TreeRow.vue'
 export default {
+    components: {
+        TreeRow
+    },
   data() {
     return {
       columns: [
@@ -47,6 +52,7 @@ export default {
       let id = 0;
       for (let i = 0; i < 5; i++) {
         let component = {
+          title: "title" + i,
           name: "component-name" + i,
           group: "component-group" + i,
           package: "component-package" + i,
@@ -56,7 +62,9 @@ export default {
           ownedSoftwareUrl: "component-ownedSoftwareUrl" + i,
           children: [],
           id: id + "",
-          _showChildren: true
+          expand: true,
+          _showChildren: true,
+          render: this.renderFn
         };
         this.loadDependencies(component, component.id, 2);
         id++;
@@ -66,6 +74,7 @@ export default {
     loadDependencies(component, pid, level) {
       for (let i = 0; i < 5; i++) {
         let dependency = {
+          title: "title" + pid + i,
           name: "dependency-name" + pid + i,
           group: "dependency-group" + pid + i,
           package: "dependency-package" + pid + i,
@@ -75,7 +84,9 @@ export default {
           ownedSoftwareUrl: "dependency-ownedSoftwareUrl" + pid + i,
           id: pid + i,
           children: [],
-          _showChildren: true
+          expand: true,
+          _showChildren: true,
+          render: this.renderFn
         };
         if (level > 0) {
           this.loadDependencies(dependency, dependency.id, level - 1);
@@ -90,7 +101,9 @@ export default {
       }, 4000);
     },
 
-    normalizeDependencies(dependency, component, pid) {},
+    renderFn(h, {root, node , data}){
+        return h('span', data.name)
+    }
   },
   mounted() {
     setTimeout(() => {
