@@ -41,6 +41,7 @@
                 </span>
             </div>
         </div>
+        <Spin size="large" fix v-if="loading"></Spin>
     </div>
 </template>
 <script>
@@ -135,7 +136,8 @@ export default {
     data() {
         return {
             tableData: [],
-            count: 0
+            count: 0,
+            loading: true
         };
     },
     methods: {
@@ -227,26 +229,23 @@ export default {
                 if (d.level === parentLevel) {
                     break
                 }
-                if (d.level === (currentState.level + 1) && currentState.expanded === true) {
-                    d.show = true;
-                } else if(d.level === (currentState.level + 2)){
-                    let pre = this.tableData[i - 1];
-                    stateStack.push(currentState);
-                    currentState = {
-                        level: pre.level,
-                        expanded: pre.expanded
-                    }
-                    if (currentState.expanded === true) {
-                        d.show = true
-                    }
-
-                } else if (d.level === currentState.level) {
-                    currentState = stateStack.pop();
-                    if (currentState.expanded === true) {
-                        d.show = true;
-                    }
+                d.show = true;
+                if (d.expanded === false) {
+                    i = this.skipHide(d, i);
                 }
             }
+        },
+        skipHide(data, index){
+            let parentLevel = data.level;
+            index++;
+            for(;index < this.tableData.length; index++){
+                let d = this.tableData[index];
+                if (d.level === parentLevel || d.level < parentLevel) {
+                    index--;
+                    break;
+                }
+            }
+            return index;
         },
         loadDependencies(pid, level) {
             if (level === 0) {
@@ -314,6 +313,9 @@ export default {
     mounted() {
         this.loadComponents();
         this.tableData = this.normalizeData(this.tableData);
+        setTimeout(()=>{
+            this.loading = false
+        }, 1000)
         console.log(this.count);
     },
 };
@@ -323,6 +325,7 @@ export default {
     width: 100%;
     border-top: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
+    position: relative;
     .head {
         display: flex;
         span {
