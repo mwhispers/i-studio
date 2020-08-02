@@ -7,7 +7,7 @@
 
 <script>
 import dashboard from './components/dashboard.vue';
-import TreeTable from './components/TreeTable.vue';
+import TreeTable from './components/MyTreeTable.vue';
 
 export default {
   name: 'App',
@@ -17,3 +17,8 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+#app{
+  padding: 10px;
+}
+</style>
