@@ -252,7 +252,7 @@ export default {
                 return;
             }
             let dependencies = [];
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 5; i++) {
                 let dependency = {
                     title: "title" + pid + '_' + i,
                     name: "dependency-name" + pid + '_' + i,

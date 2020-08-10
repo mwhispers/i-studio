@@ -2,18 +2,26 @@
   <div id="app">
     <dashboard v-if="false"></dashboard>
     <tree-table></tree-table>
+    <my-marquee :lists="lists"></my-marquee>
   </div>
 </template>
 
 <script>
 import dashboard from './components/dashboard.vue';
-import TreeTable from './components/MyTreeTable.vue';
+import TreeTable from './components/SoftwareAnalysis.vue';
+import MyMarquee from './components/MyMarquee.vue';
 
 export default {
   name: 'App',
   components: {
     dashboard,
-    TreeTable
+    TreeTable,
+    MyMarquee
+  },
+  data() {
+    return {
+      lists: ["请您再接再厉！！！","请您再接再厉！！！","请您再接再厉！！！","请您再接再厉！！！","请您再接再厉！！！","请您再接再厉！！！","请您再接再厉！！！"]
+    }
   }
 }
 </script>

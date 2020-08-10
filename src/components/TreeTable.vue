@@ -131,7 +131,7 @@ export default {
         },
         loadingData(item, callback) {
             setTimeout(() => {
-                let dependencies = this.loadDependencies(item.id, 3);
+                let dependencies = this.loadDependencies(item.id, 4);
                 callback(dependencies);
                 console.log(this.count);
                 this.count = 0;
