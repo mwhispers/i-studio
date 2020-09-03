@@ -2,10 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import './css/page.css'
 
+import 'codemirror/lib/codemirror.css'
+// import 'codemirror/theme/cobalt.css'
+
 import echarts from "echarts"
 
 import ViewUI from 'view-design';
-import TreeRow from './components/TreeRow.vue'
+import TreeRow from './components/TreeRow.vue';
+
 
 // import style
 import 'view-design/dist/styles/iview.css';

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <dashboard v-if="false"></dashboard>
-    <tree-table></tree-table>
-    <my-marquee :lists="lists"></my-marquee>
+    <tree-table v-if="false"></tree-table>
+    <my-marquee :lists="lists" v-if="false"></my-marquee>
+    <code-mirror></code-mirror>
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 import dashboard from './components/dashboard.vue';
 import TreeTable from './components/SoftwareAnalysis.vue';
 import MyMarquee from './components/MyMarquee.vue';
+import CodeMirror from './components/codemirror.vue';
 
 export default {
   name: 'App',
   components: {
     dashboard,
     TreeTable,
-    MyMarquee
+    MyMarquee,
+    CodeMirror
   },
   data() {
     return {
