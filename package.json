@@ -13,11 +13,13 @@
     "echarts": "^4.8.0",
     "html-loader": "^1.1.0",
     "jquery": "^3.5.1",
+    "koa": "^2.13.0",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
     "markdown-loader": "^5.1.0",
     "view-design": "^4.3.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-virtual-scroller": "^1.0.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.2.0",

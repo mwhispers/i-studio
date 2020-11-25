@@ -1,0 +1,63 @@
+{
+    "projectName": "LOL",
+    "buggyDependencyList": [
+        {
+            "gav": "dep-1",
+            "buggyDependencyList": [
+                {
+                    "gav": "dep-2-1",
+                    "issuesMap": {
+                        "method-3-1": "cve-1"
+                    },
+                    "methodMap": {
+                        "api-1": [
+                            ["method-1-1", "emthod-3-1"],
+                            ["method-1-1", "method-2-1", "method-3-2"]
+                        ],
+                        "api-2": [
+                            ["method-1-2", "method-2-2", "method-3-2"],
+                            ["method-1-2", "method-2-2", "method-3-3"]
+                        ]
+                    }
+                },
+                {
+                    "gav": "dep-2-2",
+                    "methodMap": {
+                        "api-2": [
+                            ["method-1-2", "method-2-2", "method-3-2"],
+                            ["method-1-2", "method-2-2", "method-3-3"]
+                        ],
+                        "api-3": [
+                            ["method-1-3","method-2-3", "method-3-3"],
+                            ["method-1-3", "method-2-3", "method-3-4"]
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "gav": "dep-2",
+            "buggyDependencyList": [
+                {
+                    "gav": "dep-2-2"
+                },
+                {
+                    "gav": "dep-2-3",
+                    "issuesMap":{
+                        "method-3-5": "cve-2"
+                    },
+                    "methodMap": {
+                        "api-3": [
+                            ["method-1-3","method-2-3", "method-3-3"],
+                            ["method-1-3", "method-2-3", "method-3-4"]
+                        ],
+                        "api-4": [
+                            ["method-1-4", "method-2-4","method-3-4"],
+                            ["method-1-4", "method-2-4", "method-3-5"]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

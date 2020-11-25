@@ -10,11 +10,16 @@ import echarts from "echarts"
 import ViewUI from 'view-design';
 import TreeRow from './components/TreeRow.vue';
 
+import VueVirtualScroller from 'vue-virtual-scroller'
+
 
 // import style
 import 'view-design/dist/styles/iview.css';
+import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
 Vue.use(ViewUI);
+Vue.use(VueVirtualScroller)
+
 
 Vue.component('TreeRow', TreeRow);
 
