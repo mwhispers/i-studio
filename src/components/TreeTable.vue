@@ -7,16 +7,18 @@
             border
             row-key="id"
             v-if="true"
-            :load-data="loadingData"
+            
         ></Table>
         <Tree :data="data" style="width: 100%" v-if="false" row-key="id"></Tree>
     </div>
 </template>
 <script>
 import TreeRow from "./TreeRow.vue";
+import Table from '../iview/components/table/index.js'
 export default {
     components: {
         TreeRow,
+        Table
     },
     data() {
         return {
@@ -25,6 +27,7 @@ export default {
                     title: "name",
                     key: "name",
                     tree: true,
+                    width: 300
                 },
                 {
                     title: "group",
@@ -86,6 +89,7 @@ export default {
                     _loading: false,
                     id: id + "",
                 };
+                component.children = this.loadDependencies(component.id, 2);
                 id++;
                 this.data.push(component);
             }
@@ -131,7 +135,7 @@ export default {
         },
         loadingData(item, callback) {
             setTimeout(() => {
-                let dependencies = this.loadDependencies(item.id, 4);
+                let dependencies = this.loadDependencies(item.id, 1);
                 callback(dependencies);
                 console.log(this.count);
                 this.count = 0;
@@ -143,7 +147,7 @@ export default {
             this.loadComponents();
             this.loading = false;
             console.log(this.count);
-        }, 4000);
+        }, 1000);
     },
 };
 </script>

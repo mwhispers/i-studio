@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <dashboard v-if="false"></dashboard>
-    <tree-table v-if="false"></tree-table>
+    <tree-table v-if="true"></tree-table>
     <my-marquee :lists="lists" v-if="false"></my-marquee>
     <code-mirror v-if="false"></code-mirror>
     <MyTable v-if="false"></MyTable>
-    <speed-caculate></speed-caculate>
+    <speed-caculate v-if="false"></speed-caculate>
   </div>
 </template>
 

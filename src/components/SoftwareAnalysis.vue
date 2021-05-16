@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import TreeTable from './MyTreeTable.vue'
+import TreeTable from './TreeTable.vue'
 export default {
     components: {
         TreeTable
